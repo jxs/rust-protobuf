@@ -1,6 +1,6 @@
 extern crate pb_rs;
 extern crate prost_build;
-extern crate protobuf_codegen_pure;
+extern crate protobuf_codegen;
 
 use pb_rs::types::{Config, FileDescriptor, RpcService};
 use std::io::Write;
@@ -36,7 +36,7 @@ fn main() {
     let out_dir = env::var("OUT_DIR").unwrap();
 
     // protobuf
-    protobuf_codegen_pure::Codegen::new()
+    protobuf_codegen::Codegen::new()
         .out_dir("src")
         .inputs(&["src/perftest_data.proto"])
         .include("src")
